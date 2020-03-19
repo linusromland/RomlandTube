@@ -1,7 +1,7 @@
 
 <?php
-require("backend/config.php");
-readfile("backend/header.html");
+require("config.php");
+readfile("header.html");
 
 	
 ?>
@@ -9,7 +9,7 @@ readfile("backend/header.html");
 <html>
   <head>
 
-<link rel="stylesheet" href="style.css" />
+
     <style>
 	p{
 	font-size: small;
@@ -42,10 +42,10 @@ readfile("backend/header.html");
 
  
        echo "<div >";
-       echo "<a href=\"https://tube.romland.space/login/view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
-       echo "<a href=\"https://tube.romland.space/login/view.php?$id\"><b>".$title."</b></a>";
+       echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
+       echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
         echo "<p>Views ".$views."</p>";
-       echo "<p>Uploaded by <a href=\"/login/user.php?$user\">$user</a></p>";
+       echo "<p>Uploaded by <a href=\"./user.php?$user\">$user</a></p>";
        echo "</div>";
      }
      ?>

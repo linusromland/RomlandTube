@@ -34,7 +34,7 @@
     echo "</video>";
     echo "<h1>$title</h1>";
     echo "<p>Views: $views</p>";
-    echo "<p>Uploaded by <a href=\"/login/user.php?$user\">$user</a></p>";
+    echo "<p>Uploaded by <a href=\"./user.php?$user\">$user</a></p>";
 ?>
 </body>
 </html>

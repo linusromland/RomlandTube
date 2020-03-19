@@ -27,8 +27,8 @@
                 $views = $row['views'];
 
                 echo "<div >";
-                echo "<a href=\"https://romland.space/login/view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
-                echo "<a href=\"https://romland.space/login/view.php?$id\"><b>".$title."</b></a>";
+                echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
+                echo "<a href=\"./view.php?$id\"><b>".$title."</b></a>";
                 echo "<p>Views ".$views."</p>";
                 echo "</div>";}
             ?>
