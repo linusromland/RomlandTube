@@ -15,7 +15,7 @@
 
             $file_vid = $_FILES['profilepic'];
             $name_vid = $file_vid['name'];
-            $target_dir_vid = "../profilepic/";
+            $target_dir_vid = "../profilepicture/";
             $target_file_vid = $target_dir_vid . $name_vid;
 
             $file_thumb = $_FILES['banner'];
@@ -40,7 +40,7 @@
                 }else{
                 	
                     // Upload
-                    $query1 = "UPDATE INTO users(title,location,thumb, user) VALUES('tmp','tmp','tmp','tmp');";
+                    $query1 = "UPDATE INTO users(profilepicture, banner) VALUES(tmp','tmp');";
                     mysqli_query($con,$query1);
                     
                     $id = mysqli_insert_id($con);
@@ -50,7 +50,7 @@
                     
                     if(move_uploaded_file($file_vid['tmp_name'],$target_file_vid) && move_uploaded_file($file_thumb['tmp_name'],$target_file_thumb)){
                         // Insert record
-						$query2 = "UPDATE videos SET title = '".$title."',location = '".$target_file_vid."', thumb = '".$target_file_thumb."', user = '".$_SESSION["username"]."' WHERE id = ".$id.";";
+						$query2 = "UPDATE users SET banner = '".$target_file_vid."', profilepicture = '".$target_file_thumb."' WHERE username = ".$_SESSION["username"]";";
 						mysqli_query($con,$query2);
 						echo "Upload successful";
                     }else{
