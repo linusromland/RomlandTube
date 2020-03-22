@@ -11,8 +11,8 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         $create_datetime = date("Y-m-d H:i:s");
-        $query    = "INSERT into `users` (username, password, email, date)
-                     VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
+        $query    = "INSERT into users (username, password, email, date, profilepicture, banner)
+                     VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime', 'profilepicture/default.png', 'banner/default.png')";
         $result   = mysqli_query($con, $query);
 	shell_exec("mkdir /home/server/users/tjo"); 
         if ($result) {
@@ -27,5 +27,5 @@
                   <p class='link'>Click here to <a href='../registration.php'>registration</a> again.</p>
                   </div>";
         }
-    } else {}
+    }
 ?>

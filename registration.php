@@ -13,7 +13,7 @@
         <input type="text" class="login-input" name="email" placeholder="Email Adress">
         <input type="password" class="login-input" name="password" placeholder="Password">
         <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="login.php">Click to Login</a></p>
+        <p class="link"><a href="index.php">Click to Login</a></p>
     </form>
 
 </body>
