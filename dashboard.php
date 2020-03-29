@@ -1,7 +1,6 @@
 <?php
 //include auth_session.php file on all user panel pages
 include("backend/auth_session.php");
-readfile("header.html");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +10,9 @@ readfile("header.html");
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <?php
+    include("header.php");
+    ?>
     <div class="form">
         <p>Welcome back, <?php echo $_SESSION['username']; ?>!</p>
     </div>

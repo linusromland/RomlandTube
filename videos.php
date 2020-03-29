@@ -1,30 +1,13 @@
 
 <?php
 require("config.php");
-readfile("header.html");
-
-	
 ?>
+
 <!doctype html>
 <html>
-  <head>
-
-
-    <style>
-	p{
-	font-size: small;
-}
-        div{
-            float: left;
-             
-        }
-        
-    </style>
-  </head>
   <body>
-	<h1>RomlandTube</h1>
-    <div>
- 
+            <?php readfile("header.html");?>
+
      <?php
      $fetchVideos = mysqli_query($con, "SELECT location FROM videos ORDER BY views DESC");
     $fetchId = mysqli_query($con, "SELECT id FROM videos ORDER BY views DESC");
@@ -49,8 +32,6 @@ readfile("header.html");
        echo "</div>";
      }
      ?>
- 
-    </div>
-
+    
   </body>
 </html>
