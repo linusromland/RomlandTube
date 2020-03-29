@@ -25,5 +25,8 @@ include("backend/auth_session.php");
             <br><br>Submit:<br>
             <input type="submit" value="Upload" name="upload">
         </form>
+    <?php
+    include("footer.html");
+    ?>
 </body>
 </html>
