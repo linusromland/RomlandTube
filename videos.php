@@ -5,10 +5,34 @@ require("config.php");
 
 <!doctype html>
 <html>
+    <head>
+        <link rel="stylesheet" href="CSS/header.css">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background-color: darkgray;
+            }
+            #main{
+             width: 20%;
+            height: 20;
+            }
+            .vid{
+                width: 100%;
+                height: 100%;
+            }
+            #views{
+                float: right;
+            } 
+        </style>
+    </head>
   <body>
-            <?php readfile("header.html");?>
-
-     <?php
+      <?php 
+      include("header.php");?>
+      <div id="main">
+    <?php 
      $fetchVideos = mysqli_query($con, "SELECT location FROM videos ORDER BY views DESC");
     $fetchId = mysqli_query($con, "SELECT id FROM videos ORDER BY views DESC");
      $fetchThumbs = mysqli_query($con, "SELECT thumb FROM videos ORDER BY views DESC");
@@ -24,14 +48,16 @@ require("config.php");
         $views = mysqli_fetch_assoc($fetchviews)['views'];
 
  
-       echo "<div >";
+       echo "<div class=\"vid\">";
        echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
        echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
-        echo "<p>Views ".$views."</p>";
+        echo "<p id=\"views\">Views ".$views."</p>";
        echo "<p>Uploaded by <a href=\"./user.php?$user\">$user</a></p>";
        echo "</div>";
      }
+      include("footer.html")
      ?>
+    </div>
     
   </body>
 </html>

@@ -1,10 +1,7 @@
 <?php
 
    session_start();
-    if(!isset($_SESSION["username"])) {
-        header("Location: ../login.php");
-        exit();
-    }
+
 
 	$host = "localhost"; /* Host name */
 	$user = "root"; /* User */

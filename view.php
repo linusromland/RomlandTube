@@ -1,11 +1,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <style>
+        
+    </style>
     </head>
     <body>
 <?php
-    include "backend/config.php";
-    readfile("header.html");
+    include("header.php");
     $id = $_SERVER['QUERY_STRING'];
     
     $printtitle = "SELECT title FROM videos WHERE id LIKE ".$id; 
