@@ -1,0 +1,43 @@
+.topnav{
+    clear: both;
+}
+#vidtitle{
+    font-size: 40px;
+}
+#numviews{
+    float: right;
+    font-size: 20px;
+    margin-right: 15px;
+}
+#uploadedby{
+    font-size: 18px;
+}
+#uploadedby a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+
+}
+#video{
+    width: 1050px;
+    height: 750px;
+    margin-left: 25px;
+}
+footer{
+    position: absolute;
+}
+#recommend{
+    margin-right: 30px;
+    margin-top: 33px;
+    width: 35%;
+    height: 77%;
+    background-color: #2c4260;
+    float: right;
+}
+#recommendations{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+    border-radius: 5px;
+}
