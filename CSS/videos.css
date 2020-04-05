@@ -1,12 +1,15 @@
-            
-            #main{
-             width: 20%;
-            height: 20;
-            }
-            .vid{
-                width: 100%;
-                height: 100%;
-            }
-            #views{
-                float: right;
-            } 
+
+body{
+    height: 100vh;
+}
+#main{
+    width: 20%;
+    height: 20;
+}
+.vid{
+    width: 100%;
+    height: 100%;
+}
+#views{
+    float: right;
+} 

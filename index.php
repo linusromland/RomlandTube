@@ -6,9 +6,10 @@ require("config.php");
 <!doctype html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/header.css">
         <link rel="stylesheet" href="CSS/videos.css">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/footer.css">
         <title>Videos - RomlandTube</title>
     </head>
   <body>
@@ -40,6 +41,7 @@ require("config.php");
      }
      ?>
     </div>
-    
+    <?php 
+      include("footer.html");?>
   </body>
 </html>
