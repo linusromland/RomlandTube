@@ -4,29 +4,11 @@ require("config.php");
 ?>
 
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <link rel="stylesheet" href="CSS/header.css">
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            body{
-                background-color: darkgray;
-            }
-            #main{
-             width: 20%;
-            height: 20;
-            }
-            .vid{
-                width: 100%;
-                height: 100%;
-            }
-            #views{
-                float: right;
-            } 
-        </style>
+        <link rel="stylesheet" href="CSS/videos.css">
+        <title>Videos - RomlandTube</title>
     </head>
   <body>
       <?php 
@@ -49,13 +31,12 @@ require("config.php");
 
  
        echo "<div class=\"vid\">";
-       echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' controls width='320px' height='200px'></video><br></a>";
+       echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' width='320' height='200' alt='".thumbnail."'><br></a>";
        echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
         echo "<p id=\"views\">Views ".$views."</p>";
        echo "<p>Uploaded by <a href=\"./user.php?$user\">$user</a></p>";
        echo "</div>";
      }
-      include("footer.html")
      ?>
     </div>
     

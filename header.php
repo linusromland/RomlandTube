@@ -9,22 +9,25 @@ $dbname = "LoginSystem"; /* Database name */
 $con = mysqli_connect($host, $user, $password,$dbname);
     
     if (!isset($_SESSION["username"])) {
-        $href ='<div class="item" style="background-color:gray;overflow: hidden;float: right; width: 90px; height: 50px; margin-top: 0.75%; margin-right: 1%;border-radius: 3px; border: 2px solid black"><a href="./backend/login.php" class="button">Login</a></div>';
+        $href ='<a href="./backend/login.php" class="button">
+        <p class="btntext">Login</p>
+        </a>';
     } else {
-    $href = '<div class="item" style="background-color:gray;overflow: hidden;float: right; width: 7%; height: 50px; margin-top: 0.75%; margin-right: 1%;border-radius: 3px; border: 2px solid black">
-    <a href="./backend/logout.php" class="button">Logout</a>
-    </div>
-    <div class="item" style="background-color:gray;overflow: hidden;float: right; width: 7%; height: 50px; margin-top: 0.75%; margin-right: 1%;border-radius: 3px; border: 2px solid black">
-    <a href="./dashboard.php" class="button">My Account</a>
-    </div>';
+    $href = '
+    <a href="./backend/logout.php" class="button">
+    <p class="btntext">Logout</p>
+    </a>
+    <a href="./dashboard.php" class="button">
+    <p class="btntext">My Account</p>
+    </a>';
     }
     ?>
   
-        <div class="topnav" style="background-color:#2c4260;overflow: hidden;">
+        <div class="topnav">
 
-            <img src="img/logo_transparent.png" height="70" style="float: left;display: block;color: #f2f2f2;text-align: center;padding: 4px  6px;">
+            <img src="img/logo_transparent.png" height="70" id="logo" alt='".logoimg."'>
 
-            <a style="float: left;display: block;color: #f2f2f2;text-align: center;padding: 14px 16px;text-decoration: none;font-size: 250%;font-family: sans-serif;">RomlandTube </a>
+            <a id="logotext">RomlandTube</a>
 
             
             <?php
