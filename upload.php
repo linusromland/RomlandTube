@@ -25,7 +25,7 @@ require("backend/config.php");
             <input type="file" name="thumbnail" accept="image/*" required="">
             <br><br>
             Select Title:<br>
-            <input type="text" name="title" required="">
+            <input type="text" name="title" required="" maxlength="40">
             <br><br>
             Submit:<br>
             <input type="submit" value="Upload" name="upload">

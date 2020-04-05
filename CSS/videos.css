@@ -3,13 +3,44 @@ body{
     height: 100vh;
 }
 #main{
-    width: 20%;
-    height: 20;
+    margin-top: 30px;
 }
 .vid{
-    width: 100%;
-    height: 100%;
+    width: 360px;
+    margin: 10px;
+    float: left;
+}
+.vid img{
+    background-color: black;
+}
+.vid a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-left: 2px;
+
 }
 #views{
     float: right;
-} 
+    font-size: 17px;
+}
+#upby{
+    margin-left: 2px;
+}
+.search{
+    width: 30%;
+    height: 30px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 17px;
+}
+#searchdiv{
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+}
+#submit{
+    display: none
+}

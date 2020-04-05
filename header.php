@@ -25,9 +25,9 @@ $con = mysqli_connect($host, $user, $password,$dbname);
   
         <div class="topnav">
 
-            <img src="img/logo_transparent.png" height="70" id="logo" alt='".logoimg."'>
+            <a href="/"><img src="img/logo_transparent.png" height="70" id="logo" alt='".logoimg."'></a>
 
-            <a id="logotext">RomlandTube</a>
+            <a id="logotext" href="/">RomlandTube</a>
 
             
             <?php

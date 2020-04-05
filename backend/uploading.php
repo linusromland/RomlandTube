@@ -11,7 +11,7 @@
 
             $ok = 0;
 
-            $maxsize = 524288000; // 5MB
+            $maxsize = 524288000000000; // 5MB
 
             $title = $_POST['title'];
 
@@ -34,8 +34,8 @@
             $filetype_thumb = strtolower(pathinfo($target_file_thumb,PATHINFO_EXTENSION));
 
             // Valid file extensions
-            $extensions_arr_vid = array("mp4","avi","3gp","mov","mpeg");
-            $extensions_arr_thumb = array("png","gif","jpg","jpeg");
+            $extensions_arr_vid = array("mp4");
+            $extensions_arr_thumb = array("png","gif","jpg","jpeg","svg");
 
             //VID
             // Check extension
@@ -59,10 +59,8 @@
                         $target_file_vid = $target_dir_vid_2 . $id . "." . $filetype_vid;
                         $target_file_thumb = $target_dir_thumb_2 . $id . "." . $filetype_thumb;
                         // Insert record
-                        echo $id;
                         $query2 = "UPDATE videos SET title = '".$title."',location = '".$target_file_vid."', thumb = '".$target_file_thumb."', user = '".$_SESSION["username"]."' WHERE id = ".$id.";";
                         mysqli_query($con,$query2);
-                        echo $query2;
                         echo "Upload successful";
                     }else{
                         echo "Failed to move file";
