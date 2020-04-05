@@ -7,7 +7,8 @@ include("backend/auth_session.php");
 <head>
     <meta charset="utf-8">
     <title>Dashboard - Romland.Space</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <?php
@@ -26,7 +27,6 @@ include("backend/auth_session.php");
             <input type="submit" value="Upload" name="upload">
         </form>
     <?php
-    include("footer.html");
     ?>
 </body>
 </html>
