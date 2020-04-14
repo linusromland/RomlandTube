@@ -1,7 +1,15 @@
+@font-face{
+    font-family: "LouisGeorgeCafe";
+    src: url("../fonts/LouisGeorgeCafe.ttf")
+}
+@font-face{
+    font-family: "arial";
+    src: url("../fonts/Arial.ttf")
+}
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: arial;
 
 }
 body{

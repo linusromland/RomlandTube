@@ -11,7 +11,7 @@
 
             $ok = 0;
 
-            $maxsize = 524288000000000; // 5MB
+            $maxsize = 5368709120; // 5MB
 
             $title = $_POST['title'];
 
@@ -43,7 +43,7 @@
 
                 // Check file size
                 if(($file_vid['size'] >= $maxsize) || ($file_vid["size"] == 0) || ($file_thumb['size'] >= $maxsize) || ($file_thumb["size"] == 0)) {
-                    echo "File too large. File must be less than 5MB.";
+                    echo "File too large. File must be less than 5GB.";
                 }else{
 
                     // Upload
