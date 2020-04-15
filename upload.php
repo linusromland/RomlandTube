@@ -18,10 +18,12 @@ require("backend/config.php");
         ?>
         <br>
         <form method="post" action="backend/uploading.php" enctype="multipart/form-data">
-            Select Video:<br>
+           <p>Max 500mb!</p>
+           <br>
+            Select Video (only MP4!):<br>
             <input type="file" name="video" accept="video/*" required="">
             <br><br>
-            Select Thumbnail:<br>
+            Select Thumbnail: (png, jpg, jpeg, svg)<br>
             <input type="file" name="thumbnail" accept="image/*" required="">
             <br><br>
             Select Title:<br>

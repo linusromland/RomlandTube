@@ -17,8 +17,8 @@
 
             $file_vid = $_FILES['video'];
             $name_vid = $file_vid['name'];
-            $target_dir_vid = "../videos/";
-            $target_dir_vid_2 = "videos/";
+            $target_dir_vid = "../profilepicture/";
+            $target_dir_vid_2 = "profilepicture/";
 
             $target_file_vid = $target_dir_vid . $name_vid;
 

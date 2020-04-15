@@ -10,6 +10,10 @@ require("config.php");
         <link rel="stylesheet" href="CSS/footer.css">
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/view.css">
+
+        <!--        CSS And JavaScript for Videoplayer-->
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css">
+
         <title>View - RomlandTube</title>
 
     </head>
@@ -61,6 +65,10 @@ require("config.php");
         $fetchlocation = mysqli_query($con, $printlocation);
         $location = mysqli_fetch_assoc($fetchlocation)['location'];
 
+        $printthumb = "SELECT thumb FROM videos WHERE id LIKE ".$id; 
+        $fetchthumb = mysqli_query($con, $printthumb);
+        $thumb = mysqli_fetch_assoc($fetchthumb)['thumb'];
+
         $printuser = "SELECT user FROM videos WHERE id LIKE ".$id; 
         $fetchusers = mysqli_query($con, $printuser);
         $user = mysqli_fetch_assoc($fetchusers)['user'];
@@ -69,30 +77,32 @@ require("config.php");
         $fetchviews = mysqli_query($con, $printviews);
         $views = mysqli_fetch_assoc($fetchviews)['views'];
 
-        $printprofilepicture = "SELECT profilepicture FROM users WHERE username LIKE ".$user; 
+        $printdate = "SELECT uploaddate FROM videos WHERE id LIKE ".$id; 
+        $fetchdate = mysqli_query($con, $printdate);
+        $date = mysqli_fetch_assoc($fetchdate)['uploaddate'];
+
+        $printprofilepicture = "SELECT profilepicture FROM users WHERE username like '".$user."'"; 
         $fetchprofilepicture = mysqli_query($con, $printprofilepicture);
         $profilepicture = mysqli_fetch_assoc($fetchprofilepicture)['profilepicture'];
 
-        echo $profilepicture;
-
-
-
         echo "<div id=\"video\">";
-        echo "<video width=\"1120\" height=\"700\" controls>";
+        echo "<video poster=\"$thumb\" id=\"player\" playsinline controls>";
         echo "<source src=\"$location\" type=\"video/mp4\">";
         echo "</video>";
-        echo "<a href=\"./user.php?$user\"><img src='".$profilepicture."' width='25' height='25' alt='".profilepicture."'><br></a>";
+        echo "<a id=\"profilepicture\" href=\"./user.php?$user\"><img src=\"$profilepicture\" width='25' height='25' alt='".$profilepicture."'><br></a>";
+        echo "<div id=\"vidinfo\">";
         echo "<p id=\"vidtitle\"><b>$title</b></p>";
         echo "<p id=\"numviews\">Views: $views</p>";
         echo "<p id=\"uploadedby\">Uploaded by: <a href=\"./user.php?$user\">$user</a></p>";
+        echo "<p id=\"uploadedby\" class=\"date\">$date</p>";
+        echo "</div>";
         echo "</div>";
         $views = $views + 1;
         $query2 = "UPDATE videos SET views = $views WHERE id = ".$id.";";
         mysqli_query($con,$query2);
-        ?>
-        <?php
         include("footer.html");
         ?>
+        <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
 
     </body>
 </html>
