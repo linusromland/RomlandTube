@@ -17,37 +17,33 @@ require("config.php");
         include("header.php");?>
         <div id="searchdiv">
             <form>
-                <input class="search" type="text" name="search" placeholder="Search" required>
+                <?php
+
+                $title = $_GET['search'];
+                echo "<input class=\"search\" type=\"text\" name=\"search\" value=\"$title\" placeholder=\"Search\">";
+                ?>
                 <input type="submit" id="submit">
             </form>
         </div>
         <div id="main">
             <?php
-            if($_GET['search'] == ''){
-                $fetchVideos = mysqli_query($con, "SELECT location FROM videos ORDER BY id DESC");
-                $fetchId = mysqli_query($con, "SELECT id FROM videos ORDER BY id DESC");
-                $fetchThumbs = mysqli_query($con, "SELECT thumb FROM videos ORDER BY id DESC");
-                $fetchTitles = mysqli_query($con, "SELECT title FROM videos ORDER BY id DESC");
-                $fetchviews = mysqli_query($con, "SELECT views FROM videos ORDER BY id DESC");
-                $fetchuser = mysqli_query($con, "SELECT user FROM videos ORDER BY id DESC");
-                while($row = mysqli_fetch_assoc($fetchVideos)){
-                    $vidLocation = $row['location'];
-                    $thumbLocation = mysqli_fetch_assoc($fetchThumbs)['thumb'];
-                    $title = mysqli_fetch_assoc($fetchTitles)['title'];
-                    $user = mysqli_fetch_assoc($fetchuser)['user'];
-                    $id = mysqli_fetch_assoc($fetchId)['id'];
-                    $views = mysqli_fetch_assoc($fetchviews)['views'];
+            $title = $_GET['search'];
+            $fetchVideos = mysqli_query($con, "SELECT * FROM videos WHERE title LIKE"." '%".$title."%' ORDER BY views DESC LIMIT 30");
 
+            while($row = mysqli_fetch_assoc($fetchVideos)){
+                $vidLocation = $row['location'];
+                $thumbLocation = $row['thumb'];
+                $title = $row['title'];
+                $user = $row['user'];
+                $id = $row['id'];
+                $views = $row['views'];
 
-                    echo "<div class=\"vid\">";
-                    echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' width='344' height='215' alt='".thumbnail."'><br></a>";
-                    echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
-                    echo "<p id=\"views\">".$views." Views</p>";
-                    echo "<p id=\"upby\"><b>Uploaded by</b> <a href=\"./user.php?$user\">$user</a></p>";
-                    echo "</div>";
-                }}
-            else{
-                include("backend/searching.php")
+                echo "<div class=\"vid\">";
+                echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' width='344' height='215' alt='".thumbnail."'><br></a>";
+                echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
+                echo "<p id=\"views\">".$views." Views</p>";
+                echo "<p id=\"upby\"><b>Uploaded by</b> <a href=\"./user.php?$user\">$user</a></p>";
+                echo "</div>";
             }
             ?>
         </div>

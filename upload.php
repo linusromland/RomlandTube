@@ -13,13 +13,13 @@ require("backend/config.php");
         <meta charset="utf-8">
     </head>
     <body>
-       <?php
+        <?php
         include("header.php");
         ?>
         <br>
         <form method="post" action="backend/uploading.php" enctype="multipart/form-data">
-           <p>Max 500mb!</p>
-           <br>
+            <p>Max 500mb!</p>
+            <br>
             Select Video (only MP4!):<br>
             <input type="file" name="video" accept="video/*" required="">
             <br><br>
@@ -28,6 +28,14 @@ require("backend/config.php");
             <br><br>
             Select Title:<br>
             <input type="text" name="title" required="" maxlength="40">
+            <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key"></script>
+            <script>
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6Lf_CeoUAAAAAFJtj2T0ws-vfbUzoN0D16U-IoHY', {action: 'tube.romland.space'}).then(function(token) {
+                        ...
+                    });
+                    });
+            </script>
             <br><br>
             Submit:<br>
             <input type="submit" value="Upload" name="upload">

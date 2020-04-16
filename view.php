@@ -26,21 +26,16 @@ require("config.php");
             <!--            php stuff for importing and showing the recommended videos-->
             <?php 
             $id = $_SERVER['QUERY_STRING'];
-            $fetchVideos = mysqli_query($con, "SELECT location FROM videos ORDER BY views DESC");
-            $fetchId = mysqli_query($con, "SELECT id FROM videos ORDER BY views DESC");
-            $fetchThumbs = mysqli_query($con, "SELECT thumb FROM videos ORDER BY views DESC");
-            $fetchTitles = mysqli_query($con, "SELECT title FROM videos ORDER BY views DESC");
-            $fetchviews = mysqli_query($con, "SELECT views FROM videos ORDER BY views DESC");
-            $fetchuser = mysqli_query($con, "SELECT user FROM videos ORDER BY views DESC");
+            $fetchVideos = mysqli_query($con, "SELECT * FROM videos ORDER BY views DESC");
             //            the actuall loop that prints the right things
             for ($x = 0; $x <= 2; $x++) {
                 $row = mysqli_fetch_assoc($fetchVideos);
                 $vidLocation = $row['location'];
-                $thumbLocation = mysqli_fetch_assoc($fetchThumbs)['thumb'];
-                $title = mysqli_fetch_assoc($fetchTitles)['title'];
-                $user = mysqli_fetch_assoc($fetchuser)['user'];
-                $id2 = mysqli_fetch_assoc($fetchId)['id'];
-                $views = mysqli_fetch_assoc($fetchviews)['views'];
+                $thumbLocation = $row['thumb'];
+                $title = $row['title'];
+                $user = $row['user'];
+                $id2 = $row['id'];
+                $views = $row['views'];
                 if($id2 != $id){
                     echo "<div class=\"vid\">";
                     echo "<a class=\"vida\" href=\"./view.php?$id2\"><img src='".$thumbLocation."' alt='".thumbnail."'><br></a>";
@@ -57,33 +52,18 @@ require("config.php");
         <?php
         $id = $_SERVER['QUERY_STRING'];
 
-        $printtitle = "SELECT title FROM videos WHERE id LIKE ".$id; 
-        $fetchTitles = mysqli_query($con, $printtitle);
-        $title = mysqli_fetch_assoc($fetchTitles)['title'];
+        $printtitle = "SELECT * FROM videos WHERE id LIKE ".$id; 
+        $fetch = mysqli_query($con, $printtitle);
+        $row = mysqli_fetch_assoc($fetch);
+        $title = $row['title'];
+        $location = $row['location'];
+        $thumb = $row['thumb'];
+        $user = $row['user'];
+        $views = $row['views'];
+        $date = $row['uploaddate'];
 
-        $printlocation = "SELECT location FROM videos WHERE id LIKE ".$id; 
-        $fetchlocation = mysqli_query($con, $printlocation);
-        $location = mysqli_fetch_assoc($fetchlocation)['location'];
-
-        $printthumb = "SELECT thumb FROM videos WHERE id LIKE ".$id; 
-        $fetchthumb = mysqli_query($con, $printthumb);
-        $thumb = mysqli_fetch_assoc($fetchthumb)['thumb'];
-
-        $printuser = "SELECT user FROM videos WHERE id LIKE ".$id; 
-        $fetchusers = mysqli_query($con, $printuser);
-        $user = mysqli_fetch_assoc($fetchusers)['user'];
-
-        $printviews = "SELECT views FROM videos WHERE id LIKE ".$id; 
-        $fetchviews = mysqli_query($con, $printviews);
-        $views = mysqli_fetch_assoc($fetchviews)['views'];
-
-        $printdate = "SELECT uploaddate FROM videos WHERE id LIKE ".$id; 
-        $fetchdate = mysqli_query($con, $printdate);
-        $date = mysqli_fetch_assoc($fetchdate)['uploaddate'];
-
-        $printprofilepicture = "SELECT profilepicture FROM users WHERE username like '".$user."'"; 
-        $fetchprofilepicture = mysqli_query($con, $printprofilepicture);
-        $profilepicture = mysqli_fetch_assoc($fetchprofilepicture)['profilepicture'];
+        $printprofilepicture = "SELECT profilepicture FROM users WHERE username like '".$user."'";  
+        $profilepicture = mysqli_fetch_assoc(mysqli_query($con, $printprofilepicture))['profilepicture'];
 
         echo "<div id=\"video\">";
         echo "<video poster=\"$thumb\" id=\"player\" playsinline controls>";
