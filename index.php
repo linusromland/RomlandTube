@@ -28,7 +28,7 @@ require("config.php");
         <div id="main">
             <?php
             $title = $_GET['search'];
-            $fetchVideos = mysqli_query($con, "SELECT * FROM videos WHERE title LIKE"." '%".$title."%' ORDER BY views DESC LIMIT 30");
+            $fetchVideos = mysqli_query($con, "SELECT * FROM videos WHERE title LIKE"." '%".$title."%' ORDER BY rand() DESC LIMIT 30");
 
             while($row = mysqli_fetch_assoc($fetchVideos)){
                 $vidLocation = $row['location'];
