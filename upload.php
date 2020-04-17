@@ -27,7 +27,7 @@ require("backend/config.php");
             <input type="file" name="thumbnail" accept="image/*" required="">
             <br><br>
             Select Title:<br>
-            <input type="text" name="title" required="" maxlength="40">
+            <input type="text" name="title" required="" maxlength="15">
             <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key"></script>
             <script>
                 grecaptcha.ready(function() {
