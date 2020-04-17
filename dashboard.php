@@ -22,7 +22,7 @@ include("backend/auth_session.php");
 
         <form method="post" action="backend/uploadpic.php" enctype="multipart/form-data">
             Select Profile Picture:<br>
-            <input type="file" name="pic" accept="picture/*" required="">
+            <input type="file" name="profilepic" accept="picture/*" required="">
             Select Banner Picture:<br>
             <input type="file" name="banner" accept="picture/*" required="">
             <br><br>Submit:<br>

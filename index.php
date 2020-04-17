@@ -41,8 +41,8 @@ require("config.php");
                 echo "<div class=\"vid\">";
                 echo "<a href=\"./view.php?$id\"><img src='".$thumbLocation."' width='344' height='215' alt='".thumbnail."'><br></a>";
                 echo "<a href=\"view.php?$id\"><b>".$title."</b></a>";
-                echo "<p id=\"views\">".$views." Views</p>";
-                echo "<p id=\"upby\"><b>Uploaded by</b> <a href=\"./user.php?$user\">$user</a></p>";
+                echo "<p class=\"views\">".$views." Views</p>";
+                echo "<p class=\"upby\"><b>Uploaded by</b> <a href=\"./user.php?$user\">$user</a></p>";
                 echo "</div>";
             }
             ?>

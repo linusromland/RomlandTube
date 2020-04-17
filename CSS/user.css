@@ -28,6 +28,8 @@
     width: 95vw;
     height: 150px;
     z-index: 1;
+    background-color: black;
+
 }
 #pic{
     width: 155px;
@@ -46,5 +48,13 @@
     font-size: 350%;
     color: white;
     margin-top: 12px;
+}
+#numviews{
+    float: right;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin-top: -60px;
+    margin-right: 20px;
 }
 

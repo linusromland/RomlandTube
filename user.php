@@ -29,6 +29,8 @@
             $profilepicture = mysqli_fetch_assoc(mysqli_query($con, $printprofilepicture))['profilepicture'];
 
             while($row = mysqli_fetch_assoc($fetchVid)){
+                $views = $row['views'];
+                $numviews +=$views;
                 $videos++;
             }
 
@@ -37,10 +39,12 @@
             echo "<img id=\"banner\" src=\"$banner\" width='25' height='25' alt='".$banner."'>";
             echo "<img id=\"pic\" src=\"$profilepicture\" width='25' height='25' alt='".$profilepicture."'>";
             echo "<h1 id=\"usertext\">".strtoupper($username)."</h1>";
-            echo "<p id=\"views\">Videos ".$videos."</p>";
+            echo "<p id=\"numviews\">Videos: ".$videos."<br>Views: ".$numviews."</p>";
             echo "</div>";
 
             echo "<div id=\"videos\">";
+            $fetchVid = mysqli_query($con, "SELECT * FROM videos WHERE user LIKE '".$username."' order by id");
+
             while($row = mysqli_fetch_assoc($fetchVid)){
                 $id = $row['id'];
                 $thumbLocation = $row['thumb'];

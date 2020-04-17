@@ -20,11 +20,11 @@ body{
     margin-left: 2px;
 
 }
-#views{
+.views{
     float: right;
     font-size: 17px;
 }
-#upby{
+.upby{
     margin-left: 2px;
 }
 .search{
