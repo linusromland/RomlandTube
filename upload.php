@@ -1,7 +1,5 @@
 <?php 
-readfile('header.html');
 require("backend/config.php");
-
 ?>
 <!DOCTYPE html>
 <html>

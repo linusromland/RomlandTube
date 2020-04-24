@@ -4,11 +4,15 @@ body{
 }
 #main{
     margin-top: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .vid{
     width: 360px;
     margin: 10px;
-    float: left;
+
 }
 .vid img{
     background-color: black;

@@ -64,7 +64,7 @@ require("config.php");
 
         $printprofilepicture = "SELECT profilepicture FROM users WHERE username like '".$user."'";  
         $profilepicture = mysqli_fetch_assoc(mysqli_query($con, $printprofilepicture))['profilepicture'];
-
+        echo "<!--Custom Video Player from https://github.com/sampotts/plyr-->";
         echo "<div id=\"video\">";
         echo "<video poster=\"$thumb\" id=\"player\" playsinline controls>";
         echo "<source src=\"$location\" type=\"video/mp4\">";
@@ -82,7 +82,12 @@ require("config.php");
         mysqli_query($con,$query2);
         include("footer.html");
         ?>
+<!--        import for the custom HTML5 Player-->
+<!--       https://github.com/sampotts/plyr-->
         <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
+        <script>
+            const player = new Plyr('#player');
+        </script>
 
     </body>
 </html>

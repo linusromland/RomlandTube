@@ -46,8 +46,9 @@ require("config.php");
                 echo "</div>";
             }
             ?>
+            <?php 
+            include("footer.html");?>
         </div>
-        <?php 
-        include("footer.html");?>
+
     </body>
 </html>
